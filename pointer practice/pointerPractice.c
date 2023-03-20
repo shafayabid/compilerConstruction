@@ -1,13 +1,26 @@
 #include <stdio.h>
+#include <string.h>
 
 int main(){
 	
-	char str[100];
-	char* ptr = str;
-	printf("Enter a string: ");
-    gets(ptr);
-
-    printf("You entered: %s\n", str);
+	FILE* ptr;
+    char ch;
+	char input[100];
+	int count = 0;
+	int newlineCounter = 0;
+ 
+    ptr = fopen("c_code.txt", "r");
+	
+	memset(input, '\0', sizeof(input));
+	
+	do {
+        ch = fgetc(ptr);
+		printf("%c(%d) ", ch, (int)ch);
+		
+ 
+    } while (ch != EOF);
+ 
+    fclose(ptr);
+	
 	return 0;
-
 }
